@@ -85,142 +85,138 @@
             الآن تم الالتزام بالملف إلى <b>HEAD</b>، ولكن ليس في المستودع البعيد الخاص بك بعد.
         </p>
     </div>
-    <a name="push"></a>
-    <div class="scrollblock block-remote">
-        <h2>دفع التغييرات</h2>
-        <p>
-            تغييراتك الآن في <b>HEAD</b> من نسخة العمل المحلية الخاصة بك. لإرسال هذه التغييرات إلى المستودع البعيد الخاص بك، نفذ<br />
-            <code>git push origin master</code><br />
-            غيّر <i>master</i> إلى أي فرع تريد دفع تغييراتك إليه.
-            <br /><br />
-            إذا لم تكن قد استنسخت مستودعًا موجودًا وترغب في توصيل المستودع الخاص بك بخادم بعيد، فأنت بحاجة إلى إضافته باستخدام<br />
-            <code>git remote add origin &lt;server&gt;</code><br />
-            الآن يمكنك دفع التغييرات إلى الخادم البعيد المحدد<br />
-        </p>
-    </div>
-    <a name="branching"></a>
-    <div class="scrollblock block-branching">
-        <h2>التفرع</h2>
-        <p>
-            تُستخدم الفروع لتطوير ميزات معزولة عن بعضها البعض. فرع <i>master</i> هو الفرع "الافتراضي" عند إنشاء مستودع. استخدم فروع أخرى للتطوير وادمجها مرة أخرى في فرع master عند الانتهاء.
-        </p>
-        <img src="img/branches.png" alt="" />
-        <p>
-            قم بإنشاء فرع جديد باسم "feature_x" وانتقل إليه باستخدام<br />
-            <code>git checkout -b feature_x</code><br />
-            العودة إلى master<br />
-            <code>git checkout master</code><br />
-            وحذف الفرع مرة أخرى<br />
-            <code>git branch -d feature_x</code><br />
-            الفرع <i>غير متاح للآخرين</i> إلا إذا دفعت الفرع إلى المستودع البعيد الخاص بك<br />
-            <code>git push origin &lt;branch&gt;</code>
-        </p>
-    </div>
-</body>
-</html>
-    <a name="update"></a>
-    <div class="scrollblock block-merging">
-        <h2>update &amp; merge</h2>
-        <p>
-            to update your local repository to the newest commit, execute <br />
-            <code>git pull</code><br />
-            in your working directory to <i>fetch</i> and <i>merge</i> remote changes.<br />
-            to merge another branch into your active branch (e.g. master), use<br />
-            <code>git merge &lt;branch&gt;</code><br />
-            in both cases git tries to auto-merge changes. Unfortunately, this is not always possible and results in <i>conflicts</i>.
-            You are responsible to merge those <i>conflicts</i>
-            manually by editing the files shown by git. After changing, you need to mark them as merged with<br />
-            <code>git add &lt;filename&gt;</code><br />
-            before merging changes, you can also preview them by using<br />
-            <code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code>
-        </p>
-    </div>
-    <a name="tagging"></a>
-    <div class="scrollblock block-tagging">
-        <h2>tagging</h2>
-        <p>
-            it's recommended to create tags for software releases. this is a known concept, which also exists in SVN. You can create a new tag named <i>1.0.0</i> by executing<br />
-            <code>git tag 1.0.0 1b2e1d63ff</code><br />
-            the <i>1b2e1d63ff</i> stands for the first 10 characters of the commit id you want to reference with your tag. You can get the commit id by looking at the... <br />
-        </p>
-    </div>
-    <a name="log"></a>
-    <div class="scrollblock block-log">
-        <h2>log</h2>
-        <p>
-            in its simplest form, you can study repository history using..
-            <code>git log</code><br />
-            You can add a lot of parameters to make the log look like what you want. To see only the commits of a certain author:<br />
-            <code>git log --author=bob</code><br />
-            To see a very compressed log where each commit is one line:<br />
-            <code>git log --pretty=oneline</code><br />
-            Or maybe you want to see an ASCII art tree of all the branches, decorated with the names of tags and branches: <br />
-            <code>git log --graph --oneline --decorate --all</code><br />
-            See only which files have changed: <br />
-            <code>git log --name-status</code><br />
-            These are just a few of the possible parameters you can use. For more, see
-            <code>git log --help</code><br />
-        </p>
-    </div>
-    <a name="checkout-replace"></a>
-    <div class="scrollblock block-checkout-replace">
-        <h2>replace local changes</h2>
-        <p>
-            In case you did something wrong, which for sure never happens ;), you can replace local changes using the command<br />
-            <code>git checkout -- &lt;filename&gt;</code><br />
-            this replaces the changes in your working tree with the last content in HEAD. Changes already added to the index, as well as new files, will be kept.
-        </p>
-        <p>
-            If you instead want to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it like this<br />
-            <code>git fetch origin</code><br />
-            <code>git reset --hard origin/master</code>
-        </p>
-    </div>
-    <a name="hints"></a>
-    <div class="scrollblock block-hints">
-        <h2>useful hints</h2>
-        <p>
-            built-in git GUI<br />
-            <code>gitk</code><br />
-            use colorful git output<br />
-            <code>git config color.ui true</code><br />
-            show log on just one line per commit<br />
-            <code>git config format.pretty oneline</code><br />
-            use interactive adding<br />
-            <code>git add -i</code>
-        </p>
-    </div>
-    <a name="resources"></a>
-    <div class="scrollblock block-resources">
-        <h2>links & resources</h2>
-        <h3>graphical clients</h3>
-        <p>
-            <ul>
-                <li><a href="http://gitx.laullon.com/">GitX (L) (OSX, open source)</a></li>
-                <li><a href="http://www.git-tower.com/">Tower (OSX)</a></li>
-                <li><a href="http://www.sourcetreeapp.com/">Source Tree (OSX & Windows, free)</a></li>
-                <li><a href="http://mac.github.com/">GitHub for Mac (OSX, free)</a></li>
-                <li><a href="https://itunes.apple.com/gb/app/gitbox/id403388357?mt=12">GitBox (OSX, App Store)</a></li>
-            </ul>
-        </p>
-        <h3>guides</h3>
-        <p>
-            <ul>
-                <li><a href="http://book.git-scm.com/">Git Community Book</a></li>
-                <li><a href="http://progit.org/book/">Pro Git</a></li>
-                <li><a href="http://think-like-a-git.net/">Think like a git</a></li>
-                <li><a href="http://help.github.com/">GitHub Help</a></li>
-                <li><a href="http://marklodato.github.com/visual-git-guide/index-en.html">A Visual Git Guide</a></li>
-            </ul>
-        </p>
-        <h3>get help</h3>
-        <p>
-            <ul>
-                <li><a href="http://groups.google.com/group/git-users/">Git User Mailing List</a></li>
-                <li><a href="http://jk.gs/git/">#git on irc.freenode.net</a></li>
-            </ul>
-        </p>
-    </div>
-    <a href="files/git_cheat_sheet.pdf" onClick="recordOutboundLink(this, 'Cheat Sheet', 'git-guide');return false;" class="cheatsheet"></a>
+   <a name="push"></a>
+<div class="scrollblock block-remote">
+    <h2>pushing changes</h2>
+    <p>
+        التغييرات دلوقتي في <b>HEAD</b> بتاع النسخة المحلية بتاعتك. عشان تبعت التغييرات دي للـ remote repository بتاعك، نفّذ<br />
+        <code>git push origin master</code><br />
+        غيّر <i>master</i> لأي branch تاني عايز تبعت عليه التغييرات.
+        <br /><br />
+        لو مكنتش clone مستودع موجود وعايز توصل الـ repo بتاعك لخادم بعيد، لازم تضيفه باستخدام<br />
+        <code>git remote add origin &lt;server&gt;</code><br />
+        دلوقتي تقدر تدفع التغييرات للخادم البعيد اللي اخترته<br />
+    </p>
+</div>
+<a name="branching"></a>
+<div class="scrollblock block-branching">
+    <h2>branching</h2>
+    <p>
+        الفروع بتستخدم لتطوير الميزات بشكل معزول. فرع <i>master</i> هو الفرع "الافتراضي" لما تعمل مستودع. استخدم فروع تانية للتطوير وادمجها تاني في master لما تخلص.
+    </p>
+    <img src="img/branches.png" alt="" />
+    <p>
+        اعمل فرع جديد اسمه "feature_x" وانتقل ليه باستخدام<br />
+        <code>git checkout -b feature_x</code><br />
+        ارجع لـ master<br />
+        <code>git checkout master</code><br />
+        واحذف الفرع تاني<br />
+        <code>git branch -d feature_x</code><br />
+        الفرع <i>مش متاح للآخرين</i> إلا لما تدفع الفرع للـ remote repository<br />
+        <code>git push origin &lt;branch&gt;</code>
+    </p>
+</div>
+<a name="update"></a>
+<div class="scrollblock block-merging">
+    <h2>update &amp; merge</h2>
+    <p>
+        عشان تحدث الـ repo المحلي بتاعك لأحدث commit، نفّذ<br />
+        <code>git pull</code><br />
+        في دليل العمل بتاعك عشان تعمل <i>fetch</i> و <i>merge</i> للتغييرات البعيدة.<br />
+        عشان تدمج فرع تاني في الفرع النشط بتاعك (مثلاً master)، استخدم<br />
+        <code>git merge &lt;branch&gt;</code><br />
+        في الحالتين git بيحاول يدمج التغييرات تلقائيًا. للأسف، ده مش دايماً بيبقى ممكن وبيؤدي لـ <i>conflicts</i>. انت المسؤول عن دمج الـ <i>conflicts</i> دي يدويًا بتعديل الملفات اللي git بيعرضها. بعد ما تعدل، لازم تأشر عليهم كأنهم مدمجين باستخدام<br />
+        <code>git add &lt;filename&gt;</code><br />
+        قبل دمج التغييرات، ممكن كمان تعاينها باستخدام<br />
+        <code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code>
+    </p>
+</div>
+<a name="tagging"></a>
+<div class="scrollblock block-tagging">
+    <h2>tagging</h2>
+    <p>
+        يُفضل تعمل tags لإصدارات البرمجيات. دي فكرة معروفة، وبتكون موجودة في SVN كمان. تقدر تعمل tag جديد اسمه <i>1.0.0</i> بتنفيذ<br />
+        <code>git tag 1.0.0 1b2e1d63ff</code><br />
+        الـ <i>1b2e1d63ff</i> بتمثل أول 10 أحرف من commit id اللي عايز تشير ليها بالـ tag. تقدر تجيب الـ commit id من خلال النظر في... <br />
+    </p>
+</div>
+<a name="log"></a>
+<div class="scrollblock block-log">
+    <h2>log</h2>
+    <p>
+        في أبسط أشكاله، تقدر تدرس تاريخ المستودع باستخدام.. <br />
+        <code>git log</code><br />
+        تقدر تضيف كتير من البرامترات عشان تخلي الـ log يظهر بالشكل اللي عايزه. عشان تشوف بس الـ commits لمؤلف معين:<br />
+        <code>git log --author=bob</code><br />
+        عشان تشوف log مضغوط جدًا بحيث كل commit يكون في سطر واحد:<br />
+        <code>git log --pretty=oneline</code><br />
+        أو يمكن عايز تشوف شجرة ASCII لكل الفروع، مزينة بأسماء الـ tags والفروع:<br />
+        <code>git log --graph --oneline --decorate --all</code><br />
+        عشان تشوف بس الملفات اللي اتغيرت:<br />
+        <code>git log --name-status</code><br />
+        دي بس بعض البرامترات اللي ممكن تستخدمها. لمزيد من المعلومات، شوف<br />
+        <code>git log --help</code>
+    </p>
+</div>
+<a name="checkout-replace"></a>
+<div class="scrollblock block-checkout-replace">
+    <h2>replace local changes</h2>
+    <p>
+        في حالة عملت حاجة غلط، اللي طبعًا مش بيحصل أبداً ;)، تقدر تستبدل التغييرات المحلية باستخدام الأمر<br />
+        <code>git checkout -- &lt;filename&gt;</code><br />
+        ده بيستبدل التغييرات في شجرة العمل بتاعتك بآخر محتوى في HEAD. التغييرات اللي اتضافت بالفعل للمؤشر، والملفات الجديدة، هتفضل موجودة.
+    </p>
+    <p>
+        لو بدل كده عايز تلغي كل التغييرات والـ commits المحلية، اعمل fetch لأحدث تاريخ من السيرفر ووجّه فرع master المحلي بتاعك عليه كده<br />
+        <code>git fetch origin</code><br />
+        <code>git reset --hard origin/master</code>
+    </p>
+</div>
+<a name="hints"></a>
+<div class="scrollblock block-hints">
+    <h2>useful hints</h2>
+    <p>
+        الواجهة الرسومية المدمجة لـ git<br />
+        <code>gitk</code><br />
+        استخدم خروج ملون لـ git<br />
+        <code>git config color.ui true</code><br />
+        اعرض الـ log في سطر واحد لكل commit<br />
+        <code>git config format.pretty oneline</code><br />
+        استخدم الإضافة التفاعلية<br />
+        <code>git add -i</code>
+    </p>
+</div>
+<a name="resources"></a>
+<div class="scrollblock block-resources">
+    <h2>links & resources</h2>
+    <h3>graphical clients</h3>
+    <p>
+        <ul>
+            <li><a href="http://gitx.laullon.com/">GitX (L) (OSX, open source)</a></li>
+            <li><a href="http://www.git-tower.com/">Tower (OSX)</a></li>
+            <li><a href="http://www.sourcetreeapp.com/">Source Tree (OSX & Windows, free)</a></li>
+            <li><a href="http://mac.github.com/">GitHub for Mac (OSX, free)</a></li>
+            <li><a href="https://itunes.apple.com/gb/app/gitbox/id403388357?mt=12">GitBox (OSX, App Store)</a></li>
+        </ul>
+    </p>
+    <h3>guides</h3>
+    <p>
+        <ul>
+            <li><a href="http://book.git-scm.com/">Git Community Book</a></li>
+            <li><a href="http://progit.org/book/">Pro Git</a></li>
+            <li><a href="http://think-like-a-git.net/">Think like a git</a></li>
+            <li><a href="http://help.github.com/">GitHub Help</a></li>
+            <li><a href="http://marklodato.github.com/visual-git-guide/index-en.html">A Visual Git Guide</a></li>
+        </ul>
+    </p>
+    <h3>get help</h3>
+    <p>
+        <ul>
+            <li><a href="http://groups.google.com/group/git-users/">Git User Mailing List</a></li>
+            <li><a href="http://jk.gs/git/">#git على irc.freenode.net</a></li>
+        </ul>
+    </p>
+</div>
+<a href="files/git_cheat_sheet.pdf" onClick="recordOutboundLink(this, 'Cheat Sheet', 'git-guide');return false;" class="cheatsheet"></a>
 </body>
 </html>
